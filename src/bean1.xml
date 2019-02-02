@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--注解和ＸＭＬ配置文件使用时，注解主要实现属性，ＸＭＬ文件实现对象-->
+    <!--开启注解扫描-->
+    <context:component-scan base-package="com"></context:component-scan>
+    <!--利用ＸＭＬ配置文件生成UserService对象-->
+
+    <bean id="userService" class="com.percy.service.UserService"></bean>
+    <!--配置文件和注解混合使用
+        首先要在配置文件中使用<bean>标签实现需要注解的属性
+        然后在属性上使用@Resource(name = "user")实现注解-->
+    <bean id="user" class="com.percy.entity.User"></bean>
+</beans>
